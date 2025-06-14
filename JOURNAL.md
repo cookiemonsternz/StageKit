@@ -137,7 +137,9 @@ probs JST-SH or picoblade
 The main concept for this project is a mini kitset stage, complete with working lights and a fogger, for use as a decorative piece or for lighting previs.
 
 The system uses a mostly consistent 1:10 scale, as shown in the image below.
+
 ![Size comparison](img/scale-demo.png)
+
 The object shown is the standard *Eurotruss* size, which is normally 510x510mm, but in my scale model, is 51x51mm. 
 
 This size was chosen due to its resulting sizes of the beams, which are in the scale model, a diamter of 6mm, which is within the capabilities of a resin 3d printer, which is the intended fabrication method for the set.
@@ -160,6 +162,7 @@ In its current form, Stagekit will consist of the following elements:
 I've decided to begin by modelling the basic truss, so time to fusion 360 for a few hours.
 
 I'm actually going to go with slightly different than the official eurotruss spec, going with a 10mm main tube diameter rather than 5mm, just to add additional support, while keeping the overall 51x51mm profile
+
 ![My truss dimensions](img/truss-front-dimensions.png)
 
 Likewise, for the braces, I am going to go with a 6mm diameter rather than 3mm, so as to make it more printable and also look a bit better. 
