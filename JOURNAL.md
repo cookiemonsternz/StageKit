@@ -262,3 +262,45 @@ I think todays been a big success, I've not only got the full idea down, but des
 Looking forward to continueing tomorrow :heart:
 
 **Time Spent: 6 Hours**
+
+
+
+
+![Interesting tetrahedron](image-1.png)
+
+![Tetrahedron pt 2](image-2.png)
+
+![Final model](image-3.png)
+
+# Stagekit - Journal 2 - 15/06/2025
+
+Today was not a fun day :(
+
+I spent around 6 hours tuning my 3d printer, trying to get even somewhat decent bed adhesion without requiring masking tape.
+
+Unfortunately, in this I failed, I eventually gave up and went back to tape, but I did manage to get the printer going 3ish times faster, which is a major bonus. 
+
+I managed to run it at around 140mm/s compared to the normal 50-60mm/s for the Ender 3 v2, which isn't actually bad.
+
+I also did some general maintanence: cleaning, adjusting belt tension, adjusting eccentric nuts, cleaning the bed; I even started to get klipper set up with one of my rpis from high seas :)
+
+Overall, not amazing, but not terrible either. 
+This was absolutely necessary given the amount of printing I'm going to be doing, every hour counts.
+
+Afterwards, I worked on designing the next truss piece, a basic corner.
+This was hell.
+I got the basic design down pretty quickly, but soon realized that my current idea of just having sleeves that connected between the trusses wasn't going to work. The corner would have to be larger than 51x51mm, making an unevenly offset system. 
+
+![corner truss piece](img/corner-truss-initial.png)
+
+At the moment, I've just gone with this, but I may be able to fix this later, if not, I can just make some special adaptor segments to bridge gaps.
+
+---
+
+*Interesting thing: the braces on the corner form a tetrahedron:*
+![Sketch tetrahedron](img/sketch-tetrahedron.png)
+![Real tetrahedron](img/real-tetrahedron.png)
+
+---
+
+Anyways, thats me for tonight, I need sleep :sob:
