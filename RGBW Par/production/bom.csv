@@ -1,0 +1,9 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+D1,XL-3528RGBW-HM,1,RGBW LED,
+"J1, J3",Molex_PicoBlade_53047-0410_1x04_P1.25mm_Vertical,2,530470410,
+J2,PinHeader_1x06_P2.54mm_Vertical,1,Prog Header,
+R1,0201,1,150,
+"R2, R3",0201,2,100,
+R4,0201,1,10k,
+SW1,PinHeader_1x02_P2.54mm_Vertical,1,SW_Push,
+U1,QFN-20-1EP_3x3mm_P0.45mm_EP1.6x1.6mm,1,ATtiny84A-MM,

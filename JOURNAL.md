@@ -324,6 +324,15 @@ Anyways, here is the finished schematic, I'm going to work on the pcb for around
 
 ![RGB Par Schematic](img/par-schematic.png)
 
+PCB Routing progress has been made! 
+I layed out all of the components (after realizing that I also needed another connector for passthrough, which I quickly added).
+
 ![PCB Unrouted V1](image.png)
 
+Then just some quick and dirty routing.
+
 ![PCB Routed V1](image-1.png)
+
+And boom, pcb done! I got a quote from jlcpcb, and in total, for a run of 5, its $26.69, so ~$5.34 a piece. This isn't terrible, but I have a feeling I could do a lot better if I hand assemble it, so I'm now going to try and redo the pcb with pure dip footprints, and I'll see if it's feasible to do it that way cost wise.
+
+For this, I'm going to change the MCU, again, this time to an attiny85, given I can get them for a lot cheaper in dip format and I do know how to get them to work :)
