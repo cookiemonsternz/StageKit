@@ -1,0 +1,6 @@
+item," qty"," link",datasheet," desc"," notes"
+1,1,https://jlcpcb.com/partdetail/MicrochipTech-ATTINY84AMUR/C147883,https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588881680744517632,ATTiny84a,more than rp2040," bc has internal clock + flash"," might change later"," might change later"
+2," 1"," https://jlcpcb.com/partdetail/Xinglight-XL_3528RGBWHM/C2843813",https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588920080595476480," RGBW Led"," NA"
+3,1,https://jlcpcb.com/partdetail/23535-0603WAF1500T5E/C22808,https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706128193802240,150r R,0603,,,
+4,2,https://jlcpcb.com/partdetail/23502-0603WAF1000T5E/C22775,https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706114222985216,100r R,0603,,,
+5,1,https://jlcpcb.com/partdetail/26547-0603WAF1002T5E/C25804,https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072,10k R,0603,,,

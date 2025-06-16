@@ -304,3 +304,26 @@ At the moment, I've just gone with this, but I may be able to fix this later, if
 ---
 
 Anyways, thats me for tonight, I need sleep :sob:
+
+# Stagekit - Journal 3 - 16/06/2025
+
+First things first, I made the schematic for the RGB Par (only rgb now, because I can't find any rgbw on jlcpcb for cheap).
+
+This wasn't too bad, but it took a while to settle on a specific MCU, I was torn between the ATTiny804 or the ATTiny84, but eventually went with the ATTiny84a, as this is the mcu for which the I2C slave library was originally tested on, so it has a lot more examples and will overall cause me a lot less headaches.
+
+I was originally really concerned when parts hunting, because the actual chip costs more than an rp2040, ($1.74 vs ~$1), but I quickly remembered that this actually includes an internal clock and flash memory, so is overall cheaper.
+
+Once the MCU was sorted, I went onto the programming, which is not as easy as for the rp2040.
+Normally, on the rp2040, I just connected the usb port and hit upload, but for the attiny, you need to use an isp programmer.
+
+I'm just going to buy one of these seperately, but because I'm using the smd version of the chip, I can't just use the dip programmer. Instead, I've exposed a programming header, which isn't actually going to have a header mounted, so that I can connect it to program, and then seal up the case and not have ugly pins sticking out. It just uses spi, which wasn't too hard to wire up, but I am very much more used to i2c, so not as easy as usual (I keep on mixing up MISO and MOSI).
+
+For the actual LED, there unfortunately was not an easily accessible parts library online, so I quickly made my own symbol and footprint; Fingers crossed that it works fine.
+
+Anyways, here is the finished schematic, I'm going to work on the pcb for around another hour, and I'll report back here where I get to.
+
+![RGB Par Schematic](img/par-schematic.png)
+
+![PCB Unrouted V1](image.png)
+
+![PCB Routed V1](image-1.png)
