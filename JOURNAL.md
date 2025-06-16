@@ -327,12 +327,54 @@ Anyways, here is the finished schematic, I'm going to work on the pcb for around
 PCB Routing progress has been made! 
 I layed out all of the components (after realizing that I also needed another connector for passthrough, which I quickly added).
 
-![PCB Unrouted V1](image.png)
+![PCB Unrouted V1](img/rgbparunroutedv1.png)
 
 Then just some quick and dirty routing.
 
-![PCB Routed V1](image-1.png)
+![PCB Routed V1](img/rgbparroutedv1.png)
 
-And boom, pcb done! I got a quote from jlcpcb, and in total, for a run of 5, its $26.69, so ~$5.34 a piece. This isn't terrible, but I have a feeling I could do a lot better if I hand assemble it, so I'm now going to try and redo the pcb with pure dip footprints, and I'll see if it's feasible to do it that way cost wise.
+And boom, pcb done! I got a quote from jlcpcb, and in total, for a run of 5, its \$26.69, so ~\$5.34 a piece. This isn't terrible, but I have a feeling I could do a lot better if I hand assemble it, so I'm now going to try and redo the pcb with pure dip footprints, and I'll see if it's feasible to do it that way cost wise.
 
 For this, I'm going to change the MCU, again, this time to an attiny85, given I can get them for a lot cheaper in dip format and I do know how to get them to work :)
+
+Alright, I've redone the schematic, and as you can see, it's slightly simplified.
+
+![RGB Par v2 Schematic](img/rgbparschematicv2.png)
+
+This is because I've opted to exclude the programming header from the board. If I'm buying the parts and then putting them on the board, I can easily just use the programmer in the way it was intended, just slotting in the chip and then soldering it after it's already programmed.
+
+Time to build up the pcb and then do the bom. 
+
+```
+*Side Note*
+I've already got a bunch of rgb leds leftover from a previous project, so I've redone the schematic and footprint to use those instead, I'll try and find the source I purchased them from originally for anyone building this later :)
+```
+
+![PCB v2 Unrouted](img/rgbparunroutedv2.png)
+
+My god this was painful to all fit on. I've put all the resistors on the back side, and the chip and led on front, but I might move the chip to the back side as well later, just to help with even light, but I think it won't be too much of an issue to bother.
+
+I had to add some margin of error on the led, as I'm unsure of the exact dimensions, even while I can measure them, I'm not particularly confident in my measuring skills, so I added a bit of a margin just in case.
+
+![PCB v2 Routed](img/rgbparroutedv2.png)
+
+Routing it was almost even more painful than placing the components, but it's done now, looks clean enough, and hopefully will be a bit cheaper.
+
+Speaking of, its cost breakdown time!
+
+| Item  | Cost  |
+| ----- | ----- |
+| PCB   | $0.42 |
+| MCU   | $1.76 |
+| R's   | $0.24 |
+| Molex | $0.50 |
+| LED   | $0.24 |
+| Misc  | $0.30 |
+| ----- | ----- |
+| Total | $3.46 |
+
+That's not bad :)
+
+Misc costs include e.g solder, shipping (accounting for batch ordering) and random wears and tear.
+
+That concludes my work for today, I'm going to 3d print a little test which I'll talk about tomorrow, but for now, goodnight!
