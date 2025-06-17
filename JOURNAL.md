@@ -378,3 +378,63 @@ That's not bad :)
 Misc costs include e.g solder, shipping (accounting for batch ordering) and random wears and tear.
 
 That concludes my work for today, I'm going to 3d print a little test which I'll talk about tomorrow, but for now, goodnight!
+
+# Stagekit - Journal 4 - 17/06/2025
+
+'Ello poppets!
+
+Today I've been working on the case for the rgb par so far, and have got what I would consider a mostly finished model, but first, the afforementioned 3d print.
+
+The 3d print I made yesterday was a little test for a mechanism to add a bit of diffusion paper to the light.
+
+For those unaware, a diffuser helps with spreading the light out a bit more:
+![Diffusor demo](img/diffusor-demo.png)
+
+This should make it look a bit less like a single led and more like light is coming flatly from the entire front surface, but I don't have too high hopes lol.
+
+For the actual mechanism to hold the diffusion paper, its a simple press fit ring that clamps down on the paper, pulling it taut and keeping it secure. This hopefully will also hold the entire assembly together with only a press fit, which should make it easily maintainable.
+
+![diffusion paper holder demo](img/diffusion-paper.png)
+
+Onto the actual case for the light I guess.
+
+### The bottom case
+![Bottom Case](img/rgbpar-top-case-2.png)
+
+I designed this so that the pcb can just sit on the little thingymabobs and it will be the right height so that the ports on the bottom fit well. Hopefully it won't fall out, because there are no screws or anything holding it down, but the fit is tight enough it should be fine.
+
+![Bottom Case with port holes](img/rgbpar-top-case-1.png)
+
+I also decided to add some decorative little heatsink thingys, just because I see them on a ton of lights and they add some visual interest to otherwise a plain cylinder.
+
+![Bottom case with ridges](img/rgbpar-top-case-3.png)
+
+### The top case
+
+![Top case](img/rgppar-bottom-case-1.png)
+
+The top case is again the same mechanism as the 3d printed one earlier, just a simple hoopish structure that is a press fit over the top of the bottom case.
+
+Not really too much to say here, its got a little lip to hold the paper more taut, but nothing too interesting.
+
+![Top case again](img/rgppar-bottom-case-2.png)
+
+### The clamp
+
+I'm pretty happy with the clamp.
+
+![Clamp sketch](img/rgbpar-clamp-1.png)
+
+Its based around the 10mm cylinder that is the main chords of the trusses, but it also has some little lips so it won't fall out and should satisfyingly clip onto the trusses.
+
+![Clamp 3d](img/rgbpar-clamp-2.png)
+
+![Clamp 3D with light](img/rgbpar-full.png)
+
+Overall, I think the case turned out looking pretty decent. The clamp part looks a bit ugly, but that can't really be helped without more resources than I'm willing to spare.
+
+The dimensions of the light do differ from the real equivalent slightly, ending up having a dimension of 36x36x13.5 (excluding the hook), which is a bit larger than the desired 25x25x10, but should be close enough to scale to look good.
+
+That's me for today, I'm taking a slight break for the rest of tonight because I'm hellishly tired and have homework to do, but tomorrow my goal is to make one more truss piece and design the schematic and pcb for the rgb tube.
+
+![Full rgb par](img/rgbpar-complete.png)
