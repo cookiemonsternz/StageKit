@@ -266,11 +266,11 @@ Looking forward to continueing tomorrow :heart:
 
 
 
-![Interesting tetrahedron](image-1.png)
+![Interesting tetrahedron](img/sketch-tetrahedron.png)
 
-![Tetrahedron pt 2](image-2.png)
+![Tetrahedron pt 2](img/real-tetrahedron.png)
 
-![Final model](image-3.png)
+![Final model](img/corner-truss-final.png)
 
 # Stagekit - Journal 2 - 15/06/2025
 
@@ -438,3 +438,9 @@ The dimensions of the light do differ from the real equivalent slightly, ending 
 That's me for today, I'm taking a slight break for the rest of tonight because I'm hellishly tired and have homework to do, but tomorrow my goal is to make one more truss piece and design the schematic and pcb for the rgb tube.
 
 ![Full rgb par](img/rgbpar-complete.png)
+
+```
+*Note*
+Just quoted the parts on jlcpcb, $0.66 for all the 3d printing
+for one with standard resin.
+```
