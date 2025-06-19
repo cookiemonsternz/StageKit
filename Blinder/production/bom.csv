@@ -1,0 +1,6 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"D1, D2",LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,2,WS2812B,
+"J1, J2",MOLEX_530470410,2,530470410,
+R4,0805,1,10k,
+SW1,PinHeader_1x02_P2.54mm_Vertical,1,SW_Push,
+U1,DIP-8_W7.62mm,1,ATtiny85-20P,

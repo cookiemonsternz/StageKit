@@ -444,3 +444,13 @@ That's me for today, I'm taking a slight break for the rest of tonight because I
 Just quoted the parts on jlcpcb, $0.66 for all the 3d printing
 for one with standard resin.
 ```
+
+# Stagekit - Journal 5 - 18/06/2025
+
+*Pixel tube.*
+
+The pixel tube I'm trying to model mine off of is the Astera Helios Tube, but its dimensions are frankly a bit much to do at 1:10 scale.
+
+They have a diameter of 42mm, which would be 4mm at scale, which is very much too hard to do. Because of this, I'm scaling it to Ø8mm x 103mm.
+
+![Schematic](image.png)
