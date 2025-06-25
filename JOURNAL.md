@@ -1,3 +1,10 @@
+---
+title: "Stagekit"
+author: "Chris B"
+description: "DIY mini kitset stage lighting previs"
+created_at: "2025-06-13"
+---
+
 # Stagekit - Journal 1 - 13/06/2025
 
 Alrighty!
@@ -447,10 +454,140 @@ for one with standard resin.
 
 # Stagekit - Journal 5 - 18/06/2025
 
-*Pixel tube.*
-
 The pixel tube I'm trying to model mine off of is the Astera Helios Tube, but its dimensions are frankly a bit much to do at 1:10 scale.
 
 They have a diameter of 42mm, which would be 4mm at scale, which is very much too hard to do. Because of this, I'm scaling it to Ø8mm x 103mm.
 
+
+### The schematic
+
+The schematic is pretty similar to the par, but instead of an rgb led, it has six neopixels, just to save on mcu pins. This means I still could use the attiny85a, which is nice as I could reuse like 90% of the previous schematic.
+
 ![Schematic](image.png)
+
+Overall, the schematic took like 30 seconds lol.
+
+### The PCB
+
+The pcb was around the same, but I had difficulty decided the length of the light overall. I wasn't sure if I wanted it ~1m or ~2m long, but I eventually settled on around 1.6m (~150mm). 
+
+![PCB](<Screenshot 2025-06-21 184507.png>)
+
+### The Case
+This was much harder than the previous design, as I had to settle on how I was going to diffuse the light, but after considering acrylic tube with diffusion paper, silicon tubing, and pmma, I decided on pmma tube.
+
+PMMA is a form of acrylic but is much more often available as a frosted translucent material, which is perfect for what I need. 
+
+I eventually came up with yet another design consisting only of press fits (hopefully this doesn't come back to bite me) and voila, case done. 
+
+![Top case body](img/rgbtube-top-case-body.png)
+
+![Top case cap](img/rgbtube-top-case-cap.png)
+
+![Bottom case](img/rgb-tube-bottom-case.png)
+
+![Tube](img/rgb-tube-tube.png)
+
+![Clamp](img/rgb-tube-clamp.png)
+
+![Clamp with top case](img/rgbtube-top-case-and-clamp.png)
+
+![Full assembly](img/rgbtube-full.png)
+
+Sorry if this journal was a bit lackluster, I'm writing this a couple days later and I'm still feeling pretty sick.
+
+# Stagekit - Journal 6 - 19/06/2025
+
+Today was focussed on updating boms, and making the blinder
+
+Guess what day it is!
+
+Thursday, but thats besides the point.
+Today is BOM day!
+
+I'm going to go through the lights I've done so far and make up some nice boms for them so I don't have to do them all in one chunk at the end. 
+
+Starting off with the rgb par, I tried to arrange it so that all the parts came from aliexpress, but unfortunately I couldn't find any of the molex connectors I need (i am finding a lot of the jst sh line... oops), so I've decided to go with lcsc for them. 
+However, I've come to an overall price of \$3.025 (excl shipping), so thats something.
+
+For the rgb tube, its a similar story, everything possible from aliexpress except the molex connectors again, and it came out to a unit cost of \$4.015 (excl shipping), which is actually excellent.
+
+### The blinder
+
+Blinders are very cool lights. They blind, look cool, and yeah...
+Blind stuff cool!
+
+I basically copied the schematic from the rgb tube, just using two neopixels instead of six, so that was super easy. 
+
+![Schematic](<Screenshot 2025-06-19 090257.png>)
+
+The pcb was also super chill with routing and layout, just was a bit of a squeeze fitting the attiny.
+
+![PCB](<Screenshot 2025-06-19 090839.png>)
+
+For the case, I did another press fit, and just made a two part case which the pcb slots into (hopefully tight enough it doesn't bounce around), and added some holes on top for light and then the clamp.
+
+![Bottom Case](<Screenshot 2025-06-19 191932.png>)
+
+![Top case](<Screenshot 2025-06-19 191952.png>) 
+
+![Bottom Case and clamp](<Screenshot 2025-06-19 191943.png>) 
+
+![Full light](<Screenshot 2025-06-19 191919.png>)
+
+Again there will be a little bit of diffusion paper that slots between the top and bottom case, so it won't look as ugly in the final light.
+
+Following finishing this, I quickly made a bom for it as well, coming in at \$2.985, which is not bad at all.
+
+Thats me for today, tomorrow i'm working on finishing up my keyboard for submission, so I'll probably do more on sunday.
+
+# Stagekit - Journal 7 - 22/06/2025
+
+Today I'm going to be working on the start of the first moving light, and for this (maybe stupidly) I'm going to try and tackle a two axis light (pan and tilt), so we'll see how that goes.
+
+After much deliberation (and I mean much, I spent like 6 hours researching), I've come to the conclusion that it is practically impossible to make this light to scale while including hardware like motor drivers, the actual control chip, and the motors themselves.
+
+As I see it, there are a couple possible solutions:
+**A.**
+Have the driving and control hardware in the seperate enclosure somewhere else (maybe behind or underneath the stage)
+**B.**
+Have the motors not actually move
+**C.**
+Have my light at double or triple the scale of the actual lights.
+
+I don't really want a static moving light, so option B is out of the question. 
+
+For option C, I'll just let you look at the following diagram:
+![Actual vs ideal size of moving head](img/moving_head_actual_vs_ideal.png)
+
+Yeah, this might not be a great option either...
+
+With option A, the base and yoke can be as small as I can get the motors, and the actual head can be tiny, so there are much less problems with scale.
+
+In that case:
+### Motor selection
+
+I spent several hours hunting through different types of motors, and I've come to a conclusion, they're all too big :(
+
+![alt text](image-1.png)
+
+However, I'm willing to compromise and go with one of the n20 motors, as they're still a decently ok size.
+
+For actually turning the yoke (the U-shaped part f the light) I obviously can't have a different direction for the motor, so I'll need some form of gearing.
+
+First of all, with the n20 right angle:
+
+I would prefer to not have the yoke directly attached to the motor, as then the base gets very wide, so what I'm thinking is gears, essentially something like this:
+![alt text](image-2.png)
+
+For the n20 flat, I was considering something akin to how the microwave plates work, where they spin around on rollers and stuff.
+
+Basically this:
+
+![alt text](image-3.png)
+
+Tbh, the first one will probably work better, so i'll go with that one.
+
+Unfortunately, its getting late, so I'm going to continue on with this tomorrow.
+
+**Time Spent: 6 Hours**
