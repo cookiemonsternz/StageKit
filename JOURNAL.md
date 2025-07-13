@@ -463,7 +463,7 @@ They have a diameter of 42mm, which would be 4mm at scale, which is very much to
 
 The schematic is pretty similar to the par, but instead of an rgb led, it has six neopixels, just to save on mcu pins. This means I still could use the attiny85a, which is nice as I could reuse like 90% of the previous schematic.
 
-![Schematic](image.png)
+![Schematic](img/RGBTube-schematic.png)
 
 Overall, the schematic took like 30 seconds lol.
 
@@ -471,7 +471,7 @@ Overall, the schematic took like 30 seconds lol.
 
 The pcb was around the same, but I had difficulty decided the length of the light overall. I wasn't sure if I wanted it ~1m or ~2m long, but I eventually settled on around 1.6m (~150mm). 
 
-![PCB](<Screenshot 2025-06-21 184507.png>)
+![PCB](img/rgb-tube-pcb.png)
 
 ### The Case
 This was much harder than the previous design, as I had to settle on how I was going to diffuse the light, but after considering acrylic tube with diffusion paper, silicon tubing, and pmma, I decided on pmma tube.
@@ -519,21 +519,21 @@ Blind stuff cool!
 
 I basically copied the schematic from the rgb tube, just using two neopixels instead of six, so that was super easy. 
 
-![Schematic](<Screenshot 2025-06-19 090257.png>)
+![Schematic](img/blinder-schematic.png)
 
 The pcb was also super chill with routing and layout, just was a bit of a squeeze fitting the attiny.
 
-![PCB](<Screenshot 2025-06-19 090839.png>)
+![PCB](img/blinder-pcb.png)
 
 For the case, I did another press fit, and just made a two part case which the pcb slots into (hopefully tight enough it doesn't bounce around), and added some holes on top for light and then the clamp.
 
-![Bottom Case](<Screenshot 2025-06-19 191932.png>)
+![Bottom Case](img/blinder-bottom-case.png)
 
-![Top case](<Screenshot 2025-06-19 191952.png>) 
+![Top case](img/blinder-top-case.png) 
 
-![Bottom Case and clamp](<Screenshot 2025-06-19 191943.png>) 
+![Bottom Case and clamp](img/blinder-clamp.png) 
 
-![Full light](<Screenshot 2025-06-19 191919.png>)
+![Full light](img/blinder-full.png)
 
 Again there will be a little bit of diffusion paper that slots between the top and bottom case, so it won't look as ugly in the final light.
 
@@ -569,7 +569,7 @@ In that case:
 
 I spent several hours hunting through different types of motors, and I've come to a conclusion, they're all too big :(
 
-![alt text](image-1.png)
+![Motor size comparison](img/motor_size_comparison.png)
 
 However, I'm willing to compromise and go with one of the n20 motors, as they're still a decently ok size.
 
@@ -578,16 +578,214 @@ For actually turning the yoke (the U-shaped part f the light) I obviously can't 
 First of all, with the n20 right angle:
 
 I would prefer to not have the yoke directly attached to the motor, as then the base gets very wide, so what I'm thinking is gears, essentially something like this:
-![alt text](image-2.png)
+![alt text](img/yoke_wheel.png)
 
 For the n20 flat, I was considering something akin to how the microwave plates work, where they spin around on rollers and stuff.
 
 Basically this:
 
-![alt text](image-3.png)
+![alt text](img/yoke_driven.png)
 
 Tbh, the first one will probably work better, so i'll go with that one.
 
 Unfortunately, its getting late, so I'm going to continue on with this tomorrow.
 
 **Time Spent: 6 Hours**
+
+# Stagekit - Journal 8 - 5/07/2025
+
+Oh god, been a while :O
+
+I lost like all motivation for doing anything for a week because school, rockquest, and generic other crap I've had to deal with, but now I'm back, and more productive than ever! (not really).
+
+Today I've so far been working on some firmware and connectors and stands for the truss pieces.
+
+## Firmware
+
+Alrighty, I've mentioned this before, but I'm using i2c to communicate between a bunch of devices. Each light has an attiny85 in it (at the moment, need a different one for the next light i'm working on), which is set up as an i2c slave, each with its own address. Each light constantly listens for messages broadcast to its address from the master controller, and when it recieves one, it updates the lights based on the data it recieves. 
+
+I chose this approach because if for some reason the master goes offline or some data is lost, it doesn't stuff up the lights visual display. I admit that this might be slightly overkill, I was kind of just copying roughly how the DMX protocol does it, but thats also built to not plunge stages into pitch black if a console crashes, and given mine is just a model, it's probably not as vital of an application, but regardless, nice to have.
+
+The actual firmware wasn't too bad. I made a little boilerplate code which sets up the i2c and provides a function that should be modified to change the light, but honestly theres not too much to do.
+
+```c
+#define I2C_SLAVE_ADDRESS 0x3   // The address of the light (can go up to 127)
+#include <TinyWireS.h>          //the ATTiny Wire library
+
+// The data format uses 5 bytes in this example, but I have a custom definition for each light
+// Byte 1 : R
+// Byte 2 : G
+// Byte 3 : B
+// Byte 4 : PAN
+// Byte 5 : TILT
+
+byte data[5] = { 0 }; // Data is just stored in a byte array;
+
+void setup() {
+  TinyWireS.begin(I2C_SLAVE_ADDRESS);
+  TinyWireS.onReceive(receiveEvent); // whenever data is received, call receiveEvent();
+}
+
+void loop() {
+  TinyWireS_stop_check();
+}
+
+void receiveEvent(int numBytes) // numBytes is the number of bytes received
+{
+  // If the number of bytes we receive doesn't match the data format, we have a problem   
+  if (numBytes > sizeof(data)) { 
+    return;
+  }
+  for (byte i=0; i<numBytes; i++) {
+    data[i] = TinyWireS.read();
+  }
+  // Update the visual display of the light
+  updateLight();
+}
+
+void updateLight() {
+  // light specific code here
+}
+```
+
+So yeah, I adapted that for the rgb tube, par, and the blinder, and it hopefully all works :)
+
+## Brackets / Base
+
+Pretty self explanatory here as well, the base is just a thing that can attach to the bottom of a truss so it sits a bit more nicely on the ground, and the bracket just connects two trusses together. 
+
+Decently simple, so I'm not really going to go into the thought process here majorly, the only thing I really had to consider was the clearances on the holes, and I went with a 0.1mm extra clearance, which made for a decent press fit when I printed it.
+
+![Base](img/truss_base.png)
+
+![Connector](img/truss-connector.png)
+
+More to come tomorrow :)
+
+**Time Spent: 3 Hours**
+
+# Stagekit - Journal 9 - 6/07/2025
+
+I've yet again been looking into the mini moving light, and holy crap, its getting very tough to get this for a reasonable cost. A lot of the issue is the yoke motor, which spins the actual light part of the light. I'd need to spec a timing belt and pulleys, and then somehow pass power and data through to it, which honestly is far more work than I think I could feasibly achieve in a single design iteration, which is kind of a requirement due to how highway is set up + shipping costs. So unfortunately, I'm going to have to exclude the moving head from this project :(
+
+However, that doesn't mean I'm not going to have any moving elements, I might do a light with only a single axis of rotation, like a roller bar or something. 
+
+Unfortunately, I have exhausted my time today just trying to prototype out the moving head, leading to several failures due to various reasons, so not much actual progress to show today.
+
+**Time Spent: 2 Hours**
+
+# Stagekit - Journal 10 - 10/07/2025
+
+Been a while again :(
+
+Getting back on the grind today and am going to design some set dressing elements for the system.
+Quick list of what I hope to get done:
+- Modular stage platforms
+- Stairs
+- Truss mount line arrays
+- Generic Stage boxes
+- Mini consoles / racks
+- Drumkit
+- Amps
+- Modular Stage risers
+
+I might end up adapting some online content as well, for people, etc.. but for know I think this is a decent list of parts.
+
+## Modular stage platforms
+
+The modular stage i'd like to be something which just clickes together, and can be slightly elevated off the ground so you can run cabling, etc through it.
+
+In order for them to connect together, I could either go with a literal clip system, similar to how the lights clip onto the trusses, but when considering how the pieces will be printed, the clips would have to sit below the stage surface, and that would require supports to print, which is probably not the most efficient. Also, clips degrade over time and can snap relatively easily, so i'm not going to go with that for the system.
+
+The next idea I thought of, and the current approach I'm building them with is a kind of jigsaw approach. If we ignore the feet of the stage for a moment and only focus on the top surface of the stage, each piece has extrusions and intrusions which slot together, as shown in the image below.
+
+![Jigsaw style connecting](img/modular_stage_platform.png)
+
+The important thing is making sure they can all slot together properly, but I think the layout of pins I've got is reasonably optimal. 
+
+![Initial sketch](img/stage-platform1x1.png)
+
+Heres the inital shape sketched out, obviously not 3d yet and it doesn't have rounded holes or extrusions, but you can get the general idea.
+
+![3d-ized](img/stage-platform1x1-3d.png)
+
+And now 3d. I've made it so the slots and stuff only are half the width of the platform, which should hopefully keep it a bit more consistent at staying together nicely even on uneven surface, and also make it just nicer to snap together. With the puzzle bits being on the top, the stage surface does get a bit inconsistent, but this isn't a major problem, as the stage being perfect isn't really a big deal, and stages in real life often have similar looks, also being snapped together (with a different mechanism of course).
+
+![Feet](img/stage-platform1x1-legs.png)
+
+Alrighty, now it's got feet, so just need to round out the jigsaw pieces slightly and then I'll do a couple test prints.
+
+![Done](img/stage-platform1x1-topdown.png)
+
+Annnnd done :)
+Printing it, due to my amazing design skills, it needs no supports, and each piece prints in around 45 mins on my printer w/ ~8g of filament. Not too shabby if I do say.
+
+![1x2 platform](img/stage-platform1x2.png)
+![2x2 Platform](img/stage-platform2x2.png)
+
+While waiting for the print, I quickly made a 1x2 and 2x2 version of the platform, all with the right puzzle bits (i hope). 
+
+Also, stairs.
+![Stairs](img/stairs.png)
+
+Prints finished now, and I've got a couple problems. The legs on the thing are super flimsy, I snapped two just getting the two pieces off the build plate. The other thing is the clips are super small, and my 3d printer doesn't have enough resolution to print them properly, so they became more rectangles than clips, and the clearance was kind of cooked. To fix this, I'll probably just increase the size of the clips and make the legs that same thickness at the bottom all the way up.
+
+For the stage risers, the stage can double as a riser, especially given their relatively low height.
+
+## Amps, Racks, and other stage props
+
+I'm going to be using blender to design these elements, as I find the actual modelling much quicker and easier in blender than fusion for detailed parts.
+
+#### Amps
+
+I'm going to model a few amps. Being a bass player, I'm absolutely going to do the classic Ampeg 8x10 stack, as well as a combo modelled after the Fender Rumble 100 and also my favorite little combo, which is a Ashdown ABM 600 with 1x15 and a 4x10 cab.
+
+First up, the ashdown head.
+![Ashdown head front](img/ashdown_front.png)
+![Ashdown head back](img/ashdown-back.png)
+
+Next, 8x10 cab:
+![8x10 Ampeg cab](img/8x10cab.png)
+
+And then, the rumble 100.
+![Rumble Front view](img/rumble-front.png)
+![Rumble back view](img/rumble-back.png)
+
+Markbass 1x15 cab:
+![1x15 Cab](img/1x15cab.png)
+
+And finally, the 4x10 cab:
+![4x10 cab](img/4x10cab.png)
+
+Guitars can just pretend to be basses and use the same cabinets and stuff, so don't need to do many other amps or stuff.
+
+Some of the details might be a little fine to 3d print, but I think it should mostly be ok, as they're all on the back anyway (mostly).
+
+Tomorrow, I continue :) (actually the day after tomorrow if you're going by the journal date, i took a break between the stage and the amps)
+
+# Stagekit - Journal 11 - 13/07/2025
+
+More 3d modelling today! 
+
+First up, just a generic roadcase:
+![Roadcase](img/roadcase.png)
+Not perfectly accurate by any means, but I think it'll be adequate for the models.
+I really can't be bothered do many more 3d models :sob: but i'll struggle through and make a couple more things.
+
+Wedge monitor:
+![Wedge monitor](img/monitor-wedge.png)
+
+Subwoofer:
+![Subwoofer](img/subwoofer.png)
+*Note: i wasn't super lazy here, this is just how basic it looks lol*
+
+Line array:
+![Line array](img/line-array.png)
+*I have no idea how people will print this or how it'll attach to the trusses and stuff :shrug:*
+
+Alright, I'm gonna call that enough models for now.
+I quickly put together a little scene with a bunch of objects in blender to test the scale and stuff, and I think it came together pretty well. I got a drumkit and guitar model from online, but they're not really in a 3d printable state so I might make my own eventually.
+
+![Scale test](img/scale-test.png)
+
+As you can see, the line arrays are perhaps a bit too big for this small of a stage, and having no actual reference for the drums and guitar, i just scaled them by eye, but I'm pretty sure they're a bit off. Otherwise, I'm pretty happy with how its looking.
