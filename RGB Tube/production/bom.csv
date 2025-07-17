@@ -1,5 +1,5 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
-"D1, D2, D3, D4, D5, D6",LED_WS2812B-2020_PLCC4_2.0x2.0mm,6,WS2812B-2020,
+"D1, D2, D3, D4, D5, D6",LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,6,WS2812B,
 "J1, J2",MOLEX_0532610471,2,0532610471,
 R4,0805,1,10k,
 SW1,PinHeader_1x02_P2.54mm_Vertical,1,SW_Push,

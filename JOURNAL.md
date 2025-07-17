@@ -789,3 +789,41 @@ I quickly put together a little scene with a bunch of objects in blender to test
 ![Scale test](img/scale-test.png)
 
 As you can see, the line arrays are perhaps a bit too big for this small of a stage, and having no actual reference for the drums and guitar, i just scaled them by eye, but I'm pretty sure they're a bit off. Otherwise, I'm pretty happy with how its looking.
+
+## Next up...
+
+I'm just going to quickly cover what the rest of my goals for this project are. I'm going to aim to have this finished in the next 4 days, and here's what I plan to do:
+
+##### - Tidy up 3D Models
+This just involves sorting out clearances, making sure connections are all proper, and making the 3d models I just did connectable (the line array :skull:)
+##### - Swap from picoblade to jst sh
+Pretty self explanatory, just changing the plug format as jst sh is much more readily available on aliexpress.
+##### - A few more 3d models
+I pretty much just want a curtain for the back of the stage and some gates / barriers to go sidestage to emulate more accurately an actual stage, because light spill is a thing.
+##### - Maybe another light
+3 types of light isn't massively impressive yknow, unfortunately, I've already covered the general static light roles, but i could potentially do a little led matrix or bar type fixture. I'm a bit reserved on making more bar / neopixel type fixtures, because 90% is just copy paste from the other lights, which doesn't really feel super fun, but whatevs ig. A moving fixture seems out of scope given the time constraints I've set. I might do it as another highway project addon for like a four or two point project later down the line.
+##### - A nice readme
+I really want to focus on making this project accessible and easy to use. Thats part of the reason I chose to do only tht components (mostly) for all the lights, and why I'm only using 3d printable parts. A good readme should help make it easy for other randos to get it up and running quickly and easily.
+##### - Main control firmware
+As stated earlier, this is running off a rpi zero 2 w, but I am yet to write the firmware to handle the conversion from art net to my custom format. I'll probably just do this while waiting for components to ship.
+
+# Stagekit - Journal 12 - 15/07/2025
+
+Alright onto the list. 
+
+Picoblade vs jst sh:
+Turns out a bunch of picoblade connectors are just sold as jst on aliexpress, even though they're clearly picoblade. I've found some for cheap and so picoblade can stay :)
+
+Next up, 3d models:
+I'm aiming to have clearances of around 0.1mm for all the 3d printed parts, which should hopefully still allow for a reasonable press fit. Just went over all the truss and case models and fixed this, not too bad.
+![pipe fence](img/pipe_fence.png)
+
+Item #3:
+More models:
+I quickly whipped up a little fence in fusion 360, but the curtains proved to be almost impossible to get looking good *and* 3d printable. I might just resort to proper fabric for this one lol.
+
+Vierte:
+Readme! I've done most of it, just finishing up the boms now. I think its pretty decent, but improvements are welcomes :)
+
+Lastly:
+I'll make another journal post when I get around to the controller design, but again, I'm going to submit first and work on this as it's coming.

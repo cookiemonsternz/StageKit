@@ -4,10 +4,10 @@ D1,RGB LED,1,Aliexpress,https://www.aliexpress.com/item/1005005768279384.html,0.
 R1,150Ω Resistor,1,Aliexpress,https://www.aliexpress.com/item/1005001627995396.html,0.02,0.02,"Comes in pack of 100, 1.65 per resistor value"
 "R2, R3",100Ω Resistor,2,Aliexpress,https://www.aliexpress.com/item/1005001627995396.html,0.02,0.04,"Comes in pack of 100, 1.65 per resistor value"
 R4,10KΩ Resistor,1,Aliexpress,https://www.aliexpress.com/item/1005001627995396.html,0.02,0.02,"Comes in pack of 100, 1.65 per resistor value"
-"J1, J3",Molex Conn,2,LCSC,https://lcsc.com/product-detail/Wire-To-Board-Connector_MOLEX-530470410_C504989.html,0.0975,0.195,If you buy more than 50 you can bring this down to a total cost of 0.16
+"J1, J3",Molex Conn,2,Aliexpress,https://aliexpress.com/item/4000127192324.html,0.06,0.12,If you buy more than 50 you can bring this down to a total cost of 0.16
 PCB,PCB,1,JLCPCB,https://jlcpcb.com/,0.42,0.42,
 CASEB,Bottom Case,1,3D Printed,NA,0.08,0.08,"around 4g of filament, if done through jlc3dp with standard resin, costs 0.36"
 CASET,Top Case,1,3D Printed,NA,0.04,0.04,"If printed on fdm printer, its approx 2g of filament, if ordered through jlcpcb with standard resin, cost 0.3 (min possible)"
 PAPER,Diffusion Paper,1,NA,NA,NA,NA,"The diffusion paper can be any semi transparent paper like material, I'm using white baking paper, and thus have ommitted the cost as it feels pointless to measure this"
 Total Cost,,,,,,,
-,,,,,,3.025,"Economy of scale does come into play here, especially with the attiny and the pcbs"
+,,,,,,2.95,"Economy of scale does come into play here, especially with the attiny and the pcbs"
