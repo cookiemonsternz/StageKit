@@ -5,6 +5,8 @@ description: "DIY mini kitset stage lighting previs"
 created_at: "2025-06-13"
 ---
 
+**Total Time Spent: 43.5 Hours**
+
 # Stagekit - Journal 1 - 13/06/2025
 
 Alrighty!
@@ -312,6 +314,8 @@ At the moment, I've just gone with this, but I may be able to fix this later, if
 
 Anyways, thats me for tonight, I need sleep :sob:
 
+**Time Spent: 2.5 Hours**
+
 # Stagekit - Journal 3 - 16/06/2025
 
 First things first, I made the schematic for the RGB Par (only rgb now, because I can't find any rgbw on jlcpcb for cheap).
@@ -386,6 +390,8 @@ Misc costs include e.g solder, shipping (accounting for batch ordering) and rand
 
 That concludes my work for today, I'm going to 3d print a little test which I'll talk about tomorrow, but for now, goodnight!
 
+**Time Spent: 4 Hours**
+
 # Stagekit - Journal 4 - 17/06/2025
 
 'Ello poppets!
@@ -452,6 +458,8 @@ Just quoted the parts on jlcpcb, $0.66 for all the 3d printing
 for one with standard resin.
 ```
 
+**Time Spent: 3 Hours**
+
 # Stagekit - Journal 5 - 18/06/2025
 
 The pixel tube I'm trying to model mine off of is the Astera Helios Tube, but its dimensions are frankly a bit much to do at 1:10 scale.
@@ -495,6 +503,8 @@ I eventually came up with yet another design consisting only of press fits (hope
 ![Full assembly](img/rgbtube-full.png)
 
 Sorry if this journal was a bit lackluster, I'm writing this a couple days later and I'm still feeling pretty sick.
+
+**Time Spent: 4 Hours**
 
 # Stagekit - Journal 6 - 19/06/2025
 
@@ -540,6 +550,8 @@ Again there will be a little bit of diffusion paper that slots between the top a
 Following finishing this, I quickly made a bom for it as well, coming in at \$2.985, which is not bad at all.
 
 Thats me for today, tomorrow i'm working on finishing up my keyboard for submission, so I'll probably do more on sunday.
+
+**Time Spent: 4 Hours**
 
 # Stagekit - Journal 7 - 22/06/2025
 
@@ -590,7 +602,7 @@ Tbh, the first one will probably work better, so i'll go with that one.
 
 Unfortunately, its getting late, so I'm going to continue on with this tomorrow.
 
-**Time Spent: 6 Hours**
+**Time Spent: 1.5 Hours**
 
 # Stagekit - Journal 8 - 5/07/2025
 
@@ -763,6 +775,8 @@ Some of the details might be a little fine to 3d print, but I think it should mo
 
 Tomorrow, I continue :) (actually the day after tomorrow if you're going by the journal date, i took a break between the stage and the amps)
 
+**Time Spent: 4 Hours**
+
 # Stagekit - Journal 11 - 13/07/2025
 
 More 3d modelling today! 
@@ -807,6 +821,8 @@ I really want to focus on making this project accessible and easy to use. Thats 
 ##### - Main control firmware
 As stated earlier, this is running off a rpi zero 2 w, but I am yet to write the firmware to handle the conversion from art net to my custom format. I'll probably just do this while waiting for components to ship.
 
+**Time Spent: 5.5 Hours**
+
 # Stagekit - Journal 12 - 15/07/2025
 
 Alright onto the list. 
@@ -827,3 +843,7 @@ Readme! I've done most of it, just finishing up the boms now. I think its pretty
 
 Lastly:
 I'll make another journal post when I get around to the controller design, but again, I'm going to submit first and work on this as it's coming.
+
+Just tidied up all the stuff and got the final quote for the system! Submitting now :)
+
+**Time Spent: 4 Hours**
