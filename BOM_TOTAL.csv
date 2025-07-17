@@ -1,0 +1,10 @@
+Part Name,Quantity,Source,Link,Unit Cost,Total Cost,Notes
+RGB Par,12,SEE INDIVIDUAL BOM,NA,2.95,35.4,Looking for cheaper ones
+RGB Tube,12,SEE INDIVIDUAL BOM,NA,3.9,46.8,"Comes in pack of 100, 1.65 per resistor value"
+RGB Blinder,6,SEE INDIVIDUAL BOM,NA,2.91,17.46,If you buy more than 50 you can bring this down to a total cost of 0.16
+Cables,20,Aliexpress,https://aliexpress.com/item/1005007774081283.html,0.184,3.68,"The diffusion paper can be any semi transparent paper like material, I would reccomend some form of diffusion for this light, as the raw leds look a bit ugly"
+ATTiny Programmer,1,Aliexpress,https://aliexpress.com/item/1005005704723470.html,1.43,1.43,
+3D Printer filament,1,Aliexpress,https://aliexpress.com/item/1005006861804231.html,26.33,26.33,I am printing >1kg of material. This includes: 16 Truss Straight (800g) + 4 Truss Corner (172g) + Various other elements
+Total Cost,,,,,,
+,,,,,131.1,Excl shipping
+,,,,,119.57,Incl. Shipping - Aliexpress (93.72) - JLCPCB (25.85)

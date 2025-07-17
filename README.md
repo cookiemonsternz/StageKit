@@ -4,6 +4,8 @@ Stagekit is a 3D-printable, completely hand-solderable diy lighting previs kit.
 
 It consists of various fixtures, truss elements, and set dressing pieces, all modelled at a fairly accurate 1:10 scale. The truss pieces are modelled after standard Eurotruss, and the lights after various fixtures, but due to design requirements, sizing and design liberties have had to be taken. 
 
+The inspiration for the design was really just the limited visualisation tools available for hobbyist lighting designers. There's certainly a lot of software, but much of it is prohibitively expensive, especially for students, then of course, comes the question of having software that can actually output to it. Guess what, you have to pay for that too. 
+
 ## Fixtures
 
 Currently, Stagekit has 3 fixture designs available, but more designs are coming in the future.
@@ -79,6 +81,9 @@ Stage platform 2x2:
 Stage stairs:
 ![Stairs](img/stairs.png)
 
+Finally, an example miniature stage mockup:
+![Stage mockup](img/stage-mockup.png)
+
 ## Firmware
 
 To program the ATTiny85 chips, you will need either a dedicated programmer or an Arduino Uno or similar. The source code for all of the lights can be found in the firmware directory.
@@ -86,6 +91,17 @@ To program the ATTiny85 chips, you will need either a dedicated programmer or an
 Unfortunately, due to size and budget limitations, light addresses must be hardcoded into each chip individually. This means that when flashing firmware, ensure each light has a different address assigned, by editing the `.ino` file and changing the value of `I2C_SLAVE_ADDRESS` to any unused value between 0x01 and 0x7F before programming.
 
 PCB Source files can be found in the respective folder (Blinder, RGB Par, RGB Tube) and all 3D models can be found inside the cad folder.
+
+## PCB Pictures for Highway
+
+RGB Par:
+![RGB Par PCB](img/rgbparroutedv2.png)
+
+RGB Tube:
+![RGB Tube PCB](img/rgb-tube-pcb.png)
+
+Blinder:
+![RGB Blinder PCB](img/blinder-pcb.png)
 
 ## BOM
 

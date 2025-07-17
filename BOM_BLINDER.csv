@@ -1,0 +1,11 @@
+Item,Part Name,Quantity,Source,Link,Unit Cost,Total Cost,Notes
+U1,ATTiny85,1,Aliexpress,https://www.aliexpress.com/item/1005007400913382.html,1.75,1.75,Looking for cheaper ones
+R4,10KΩ Resistor,1,Aliexpress,https://www.aliexpress.com/item/1005001627995396.html,0.02,0.02,"Comes in pack of 100, 1.65 per resistor value"
+"J1, J2",Molex Conn,2,Aliexpress,https://aliexpress.com/item/4000127192324.html,0.06,0.12,If you buy more than 50 you can bring this down to a total cost of 0.16
+"D1, D2",Neopixel,2,Aliexpress,https://www.aliexpress.com/item/4001345875756.html,0.03,0.06,This is assuming ordering a batch of 100
+PCB,PCB,1,JLCPCB,https://jlcpcb.com/,0.82,0.82,Batch of five
+CASEB,Bottom Case,1,3D Printed,NA,0.08,0.08,"around 4g of filament, if done through jlc3dp with standard resin, costs 0.3 - This piece includes the clamp connected to the print, but it can also be printed seperately"
+CASET,Top Case,1,3D Printed,NA,0.06,0.06,"around 3g of filament, if done through jlc3dp with standard resin, costs 0.3"
+PAPER,Diffusion Paper,1,NA,NA,NA,NA,"The diffusion paper can be any semi transparent paper like material, I would reccomend some form of diffusion for this light, as the raw leds look a bit ugly"
+Total Cost,,,,,,,
+,,,,,,2.91,"Economy of scale does come into play here, especially with the attiny and the pcbs"
